@@ -2,7 +2,7 @@
 
 
 
-![terminal2](https://github.com/KhairiTab/holbertonschool-simple_shell/assets/135613251/1a135b71-da1c-496c-b1da-5058dcb64d02)
+![Alt text](https://media.geeksforgeeks.org/wp-content/uploads/20190502161414/Screenshot-from-2019-05-02-16-04-50.png)
 
 
 ## Description

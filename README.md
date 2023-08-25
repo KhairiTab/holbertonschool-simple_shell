@@ -77,6 +77,7 @@ drwxrwxr-x 2 user user 4096 Aug 18 12:00 directory/
 
 Contributor : 
 Khaled Jallouli (jallouli.khaled.2001@gmail.com)
+Khaireddine Taboubi (taboubikhairi68@gmail.com)
 
 License :
 This project is licensed under the MIT License - see the LICENSE file for details.

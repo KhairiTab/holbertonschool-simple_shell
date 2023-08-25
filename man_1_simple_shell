@@ -54,7 +54,7 @@ The holberton-shell returns the following exit statuses:
 2: Invalid command.
 
 .SH AUTHOR
-The holberton-shell was developed by Khaled Jallouli (jallouli.khaled.2001@gmail.com) as a project for Holberton School.
+The holberton-shell was developed by Khaled Jallouli (jallouli.khaled.2001@gmail.com) Khaireddine Taboubi (taboubikhairi68@gmail.com) as a project for Holberton School.
 
 .SH COPYRIGHT
 This is free and open-source software: you are free to modify and redistribute it.

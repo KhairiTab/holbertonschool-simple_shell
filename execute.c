@@ -13,7 +13,8 @@ void execute_command(char **args)
         perror("Fork error");
         exit(EXIT_FAILURE);
     }
-    else if (child_pid == 0)
+    else 
+    if (child_pid == 0)
     {
         execvp(args[0], args);
         perror("Command execution error");

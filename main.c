@@ -9,61 +9,53 @@ int main(void)
 {
     char *line;
     char **args;
+    pid_t child_pid;
+    int i;
 
     while (1)
     {
-        line = prompt(); // Get user input
-
-        // Check for end of file (CTRL+D)
+        line = prompt();
         if (line == NULL)
         {
             printf("\nExiting shell...\n");
-            break; // Exit the loop
+            break;
         }
 
-        args = parse_command(line); // Parse the input into arguments
-
-         if (args == NULL) // User entered "exit" command
+        args = parse_command(line);
+        if (args == NULL)
         {
-            free(line); // Free memory for the input line
-            break; // Exit the loop
+            free(line);
+            break;
         }
 
+        child_pid = fork();
 
-        if (args != NULL)
+        if (child_pid == -1)
         {
-            // Fork a child process
-            pid_t child_pid = fork();
+            perror("Fork error");
+            exit(EXIT_FAILURE);
+        }
+        else if (child_pid == 0)
+        {
+            execvp(args[0], args);
 
-            if (child_pid == -1)
-            {
-                perror("Fork error");
-                exit(EXIT_FAILURE);
-            }
-            else if (child_pid == 0) // Child process
-            {
-                // Execute the command
-                execvp(args[0], args);
+            perror("Command execution error");
+            exit(EXIT_FAILURE);
+        }
+        else
+        {
+            int child_status;
+            waitpid(child_pid, &child_status, 0);
 
-                // If execvp fails, print an error and exit
-                perror("Command execution error");
-                exit(EXIT_FAILURE);
-            }
-            else // Parent process
+            for (i = 0; args[i] != NULL; i++)
             {
-                // Wait for the child process to complete
-                int child_status;
-                waitpid(child_pid, &child_status, 0);
-
-                // Free memory for the arguments array
-                for (int i = 0; args[i] != NULL; i++)
-                    free(args[i]);
-                free(args);
+                free(args[i]);
             }
+            free(args);
         }
 
-        free(line); // Free memory for the input line
+        free(line);
     }
 
-    return (0);
-    
+    return 0;
+}

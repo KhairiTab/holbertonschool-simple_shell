@@ -8,6 +8,7 @@ int main(void)
 	char **args;
 	pid_t child_pid;
 	int i;
+	int child_status;
 
 	while (1)
 	{
@@ -37,7 +38,6 @@ int main(void)
 			exit(EXIT_FAILURE);
 		}
 		else
-		int child_status;
 		{
 			waitpid(child_pid, &child_status, 0);
 			for (i = 0; args[i] != NULL; i++)

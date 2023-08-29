@@ -37,10 +37,9 @@ int main(void)
 			exit(EXIT_FAILURE);
 		}
 		else
+		int child_status;
 		{
-			int child_status;
 			waitpid(child_pid, &child_status, 0);
-			
 			for (i = 0; args[i] != NULL; i++)
 			{
 				free(args[i]);

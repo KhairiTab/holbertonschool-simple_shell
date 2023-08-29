@@ -39,6 +39,7 @@ int main(void)
 		else
 		{
 			int child_status;
+			
 			waitpid(child_pid, &child_status, 0);
 			for (i = 0; args[i] != NULL; i++)
 			{
